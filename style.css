@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap");
+
+:root {
+    color-scheme: dark;
+
+    --cor-fundo-topo: #1b2838;
+    --cor-fundo-base: #101821;
+    --cor-superficie: #16202d;
+    --cor-superficie-alta: #1f3044;
+    --cor-campo: #0e1620;
+    --cor-texto: #dbe6ef;
+    --cor-titulo: #ffffff;
+    --cor-texto-suave: #8ba3b8;
+    --cor-borda: #2e4560;
+    --cor-destaque: #66c0f4;
+    --cor-primaria-1: #47a3e0;
+    --cor-primaria-2: #2a5fbf;
+    --cor-primaria-hover-1: #66c0f4;
+    --cor-primaria-hover-2: #3874d8;
+    --cor-perigo: #ff6b7d;
+    --cor-perigo-fundo: rgba(214, 48, 74, 0.16);
+    --faixa-1: #66c0f4;
+    --faixa-2: #4a7fd8;
+    --faixa-3: #2fb5b0;
+    --faixa-4: #7a8fe8;
+    --faixa-5: #3b6ea8;
+    --fonte: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --texto-base: 1rem;
+    --texto-titulo: clamp(1.8rem, 6vw, 2.6rem);
+    --texto-card: 1.1rem;
+    --espaco-1: 0.5rem;
+    --espaco-2: 0.75rem;
+    --espaco-3: 1rem;
+    --espaco-4: 1.5rem;
+    --espaco-5: 2.5rem;
+    --raio-campo: 4px;
+    --raio-card: 6px;
+    --sombra-card: 0 4px 16px rgba(0, 0, 0, 0.35);
+    --transicao: 0.15s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fonte);
+    font-size: var(--texto-base);
+    line-height: 1.5;
+    color: var(--cor-texto);
+    background: linear-gradient(180deg, var(--cor-fundo-topo) 0%, var(--cor-fundo-base) 100%) fixed;
+    min-height: 100vh;
+}
+
+input,
+button {
+    font: inherit;
+    color: inherit;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: var(--espaco-3);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--espaco-5) var(--espaco-3);
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: var(--texto-titulo);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--cor-titulo);
+    margin-bottom: var(--espaco-3);
+}
+
+#nomeJogo {
+    flex: 1 1 260px;
+    min-width: 0;
+    padding: var(--espaco-2) var(--espaco-3);
+    background-color: var(--cor-campo);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-campo);
+    transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+#nomeJogo::placeholder {
+    color: var(--cor-texto-suave);
+}
+
+#nomeJogo:hover {
+    border-color: var(--cor-texto-suave);
+}
+
+#nomeJogo:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(102, 192, 244, 0.2);
+}
+
+#btnAdicionar {
+    padding: var(--espaco-2) var(--espaco-4);
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, var(--cor-primaria-1), var(--cor-primaria-2));
+    border: none;
+    border-radius: var(--raio-campo);
+    cursor: pointer;
+    transition: filter var(--transicao), transform var(--transicao);
+}
+
+#btnAdicionar:hover {
+    background: linear-gradient(90deg, var(--cor-primaria-hover-1), var(--cor-primaria-hover-2));
+}
+
+#btnAdicionar:active {
+    transform: translateY(1px);
+}
+
+#listaJogos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-3);
+}
+
+.card-jogo {
+    --faixa: var(--faixa-1);
+
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-1);
+    padding: var(--espaco-2) var(--espaco-3) var(--espaco-2) var(--espaco-4);
+    background: linear-gradient(135deg, var(--cor-superficie-alta), var(--cor-superficie));
+    border: 1px solid var(--cor-borda);
+    border-left: 5px solid var(--faixa);
+    border-radius: var(--raio-card);
+    box-shadow: var(--sombra-card);
+}
+
+.card-jogo:nth-child(5n + 2) { --faixa: var(--faixa-2); }
+.card-jogo:nth-child(5n + 3) { --faixa: var(--faixa-3); }
+.card-jogo:nth-child(5n + 4) { --faixa: var(--faixa-4); }
+.card-jogo:nth-child(5n + 5) { --faixa: var(--faixa-5); }
+
+.card-jogo h3 {
+    flex: 1;
+    min-width: 0;
+    font-size: var(--texto-card);
+    font-weight: 600;
+    color: var(--cor-titulo);
+    overflow-wrap: anywhere;
+}
+
+.card-jogo input {
+    flex: 1;
+    min-width: 0;
+    padding: var(--espaco-1) var(--espaco-2);
+    background-color: var(--cor-campo);
+    border: 1px solid var(--cor-destaque);
+    border-radius: var(--raio-campo);
+}
+
+.card-jogo input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 192, 244, 0.2);
+}
+
+.card-jogo button {
+    padding: 0.60rem var(--espaco-3);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+    background-color: rgba(103, 193, 245, 0.1);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-campo);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--transicao),
+                border-color var(--transicao),
+                color var(--transicao);
+}
+
+.card-jogo button:hover {
+    color: var(--cor-titulo);
+    background-color: rgba(103, 193, 245, 0.22);
+    border-color: var(--cor-destaque);
+}
+
+.card-jogo button[onclick^="salvarEdicao"] {
+    color: #fff;
+    background: linear-gradient(90deg, var(--cor-primaria-1), var(--cor-primaria-2));
+    border-color: transparent;
+}
+
+.card-jogo button[onclick^="salvarEdicao"]:hover {
+    background: linear-gradient(90deg, var(--cor-primaria-hover-1), var(--cor-primaria-hover-2));
+    border-color: transparent;
+}
+
+.card-jogo button[onclick^="excluirJogo"]:hover {
+    color: var(--cor-perigo);
+    background-color: var(--cor-perigo-fundo);
+    border-color: var(--cor-perigo);
+}
+
+#listaJogos:empty::before {
+    content: "Sua biblioteca está vazia. Digite o nome de um jogo acima para adicionar o primeiro.";
+    padding: var(--espaco-5) var(--espaco-3);
+    text-align: center;
+    color: var(--cor-texto-suave);
+    border: 1px dashed var(--cor-borda);
+    border-radius: var(--raio-card);
+}
